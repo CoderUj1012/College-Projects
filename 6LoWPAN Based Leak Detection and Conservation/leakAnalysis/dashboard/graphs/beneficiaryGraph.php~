@@ -1,0 +1,39 @@
+<?php
+include("phpgraphlib.php");
+//include('phpgraphlib_pie.php');
+include("../connectdb.php");
+$graph=new PHPGraphLib(550,350); 
+$graphpie = new PHPGraphLibPie(400, 200);
+
+
+$dataArray=array();
+  
+//get data from database
+$sql="SELECT YEAR(s_date), COUNT(*) AS 'count' FROM BENEFITED_THROUGH GROUP BY YEAR(s_date)";
+$result = mysql_query($sql) or die('Query failed: ' . mysql_error());
+if ($result) {
+  while ($row = mysql_fetch_assoc($result)) {
+      $salesgroup=$row["YEAR(s_date)"];
+      $count=$row["count"];
+      //add to data areray
+      $dataArray[$salesgroup]=$count;
+  }
+}
+  
+//configure graph
+$title = "X-AXIS : YEAR             Y-AXIS : NUMBER OF PEOPLE BENEFITTED";
+
+$graph->addData($dataArray);
+$graph->setBarColor('navy');
+$graph->setupXAxis(20, 'blue');
+$graph->setTitleColor('blue');
+$graph->setGridColor('153,204,255');
+$graph->setDataValues(true);
+$graph->setDataValueColor('navy');
+$graph->setGoalLine('10', 'fuscia', 'dashed');
+$graph->setTitle($title);
+$graph->setGradient("black", "blue");
+$graph->setBarOutlineColor("black");
+$graph->createGraph();
+
+?>
