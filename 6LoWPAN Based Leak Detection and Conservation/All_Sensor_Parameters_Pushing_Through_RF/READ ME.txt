@@ -1,0 +1,13 @@
+
+To compile Transmitter code and program the C-Mote:
+make TEST=tx		//for compiling
+sudo make flash		//for programming
+
+To compile Reciver code:
+make TEST=rx		//for compiling
+sudo make flash		//for programming
+
+NOTE: Before programming C-Mote make sure that serial port name is correct. To know the serial port name, run motelist command in terminal and change content of DEV accordingly in Makefile.
+
+After programming both Transmitter and Receiver, open serial port of receiver C-Mote with baudrate 4800.
+

@@ -1,0 +1,87 @@
+
+import os
+import serial
+import MySQLdb
+from twilio.rest import TwilioRestClient
+import smtplib
+from email.mime.text import MIMEText
+from datetime import datetime
+from pytz import timezone
+
+
+def sqlTOdb(query, destDB):
+	if destDB:
+		db = MySQLdb.connect(host="localhost", user="id1460510_root", passwd="rootroot", db="id1460510_water_analysis")
+	else:
+		db = MySQLdb.connect(host="localhost", user="root", passwd="root", db="water_analysis")
+	cursor = db.cursor()
+	cursor.execute(query)
+	db.commit()
+
+
+def sendSMS(message):
+	newaccSid = "ACac6fde9a2b3d03f99b1acbea6288f28a"
+	newauthTok = "3c913d516091fbd5b6c6d70379b4e7e0"
+	snamithSid = "AC4c32940f316a9b3d9779604c6088e0ae"
+	snamithTok = "47cbaf7f774dbba2d13554d42506c77e"
+
+	twilioClient = TwilioRestClient(snamithSid, snamithTok)
+	myTwilioNumber = +12056145447
+
+	#twilioClient = TwilioRestClient(newaccSid, newauthTok)
+	#myTwilioNumber = +19206452976
+	#destCellPhone = +919845772658
+	#myMessage = twilioClient.messages.create(body = message, from_=+19206452976, to="+919845772658")
+	myMessage = twilioClient.messages.create(body = "\nALERT : Water Leakage Detected!!", from_="+12056145447", to="+918147394678")
+
+
+def log_mail(mfrom, mto, message):
+    #print "**********************************************************"
+    #print message
+    #print "**********************************************************"
+    email = MIMEText(message, 'plain', 'utf-8')
+    email['From'] = mfrom
+    email['To'] = mto
+    email['Subject'] = '** ALERT **'
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login("pingondetection", "detectorbabu")
+	#password for twilio : Detectorb@bu 	but now I think it is detectorbabu
+    server.sendmail(email['From'], email['To'], email.as_string())
+    server.quit()
+
+
+
+
+try:
+	fabkit = serial.Serial('/dev/ttyUSB0', 4800)
+except:
+    print "Failed to connect to serial port"
+    exit()
+count = 0
+
+while 1:
+	count = count + 1
+	line = fabkit.readline()
+	print "\nLeakage Detected"
+	if count%1==0:
+		try:
+			sendSMS("WATER LEAKAGE ALERT")
+		except:
+			print "Error Sensing SMS"
+		try:
+			log_mail("pingondetection@gmail.com", "amithrajsn@gmail.com", "ALERT : Water Leakage Detected")
+		except:
+			print "Error Sending Email"
+		india = timezone('Asia/Kolkata')
+		sa_time = datetime.now(india)
+		time = sa_time.strftime('%Y-%m-%d %H:%M:%S')
+		query = "INSERT INTO LEAKAGE VALUES(NULL, '1', '" + time + "', 'amith@gmail.com')"
+		try:
+			sqlTOdb(query, 0)
+		except:
+			print "Error uploading data to database"
+
+
+fabkit.close()
