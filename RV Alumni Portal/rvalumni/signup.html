@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Free website template from 4Templates.com</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="default.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+	@import url("layout.css");
+.style10 {font-size: small; color: #000000; font-weight: bold; }
+.style4 {	font-size: 18px;
+	color: #000000;
+}
+-->
+</style>
+</head>
+<script language="javascript">
+function validateForm()
+{
+	
+  var x=document.forms["form1"]["textfield5"].value;
+  var phoneNum = new String();
+  var regExpObj = /\d\d\d\d\d\d\d\d\d\d/;
+  //alert(areaCode);
+  if(regExpObj.exec(x) == null)
+  {
+   alert("Invalid Phone No !");
+	//alert("not ok");
+	return false;
+  }
+  
+ /* var y=document.forms["form1"]["textfield3"].value;
+	var atpos=y.indexOf("@");
+	var dotpos=y.lastIndexOf(".");
+	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=y.length)
+  {
+  		alert("Not a valid e-mail address");
+  	return false;
+  }*/
+  
+
+  
+}
+</script>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<h1 align="center">R V Alumni Portal</h1>
+    <h2 align="center"> Autonomous Institution under Visvesvaraya Technological University, Belgavi</h2>
+  </div>
+	<div id="main-menu">
+		<ul>
+			<li class="first"><a href="#" id="main-menu1" accesskey="1" title="">Home</a></li>
+			<li><a href="aboutus.html" id="main-menu2" accesskey="2" title="">About us</a></li>
+	<!--		<li><a href="adlandmrk.html" id="main-menu3" accesskey="3" title="">Landmark</a></li>-->
+			<li><a href="signup.html" id="main-menu4" accesskey="4" title="">Sign Up</a></li>
+			<li><a href="signin.html" id="main-menu5" accesskey="5" title="">Sign in</a></li>
+			<li><a href="contactus.html" id="main-menu6" accesskey="4" title="">Contact Us</a></li>
+			<li><a href="usignin.html" id="main-menu7" accesskey="4" title="">User sign in</a></li>
+			<li class="first"></li></ul>
+  </div>
+<div id="content">
+		<div id="left">
+			<h2>&nbsp;</h2>
+	  </div>
+		<div id="right">
+			<h2 class="bigger">&nbsp;</h2>
+	  <div>
+				
+			</div>
+			<form id="form1" name="form1" method="post" action="signup.php" onsubmit="return validateForm()">
+              <p align="center">&nbsp;</p>
+              <table width="411" height="363" border="0" align="center">
+                <tr>
+                  <td width="157"><span class="style10">First Name</span></td>
+                  <td width="178"><input type="text" name="textfield" id="textfield" required/></td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Middle Name</span></td>
+                  <td><input type="text" name="textfield2" id="textfield2" /></td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Last Name</span></td>
+                  <td><input type="text" name="textfield3" id="textfield3" required/></td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Gender</span></td>
+                  <td><select name="select2" id="select2">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>                  </td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Date of Birth</span></td>
+                  <td><input type="date" name="textfield6" id="textfield6" required/></td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Address</span></td>
+                  <td><textarea name="textfield4" id="textfield4"></textarea></td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Contact number</span></td>
+                  <td><input name="textfield5" type="text" id="textfield5" maxlength="10" required/></td>
+                </tr>
+                
+                <tr>
+                  <td><span class="style10">Year of passing</span></td>
+                  <td><select name="select" id="select">
+                   <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                  </select>                  </td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Branch</span></td>
+                  <td><select name="select3" id="select3">
+                    <option value="CS">CS</option>
+                    <option value="EC">EC</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="MECH">MECH</option>
+                                    </select></td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Photo</span></td>
+                  <td><input type="file" name="textfield11" id="textfield11" required/></td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Email </span></td>
+                  <td><input type="email" name="textfield9" id="textfield9" required/></td>
+                </tr>
+                
+                <tr>
+                  <td><span class="style10"> Password</span></td>
+                  <td><input type="password" name="textfield10" id="textfield10" required/></td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Qualification</span></td>
+                  <td><input type="text" name="textfield8" id="textfield8" required/></td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Profession</span></td>
+                  <td><input type="text" name="textfield12" id="textfield12" required/></td>
+                </tr>
+                <tr>
+                  <td><span class="style10">Job or Higher Studies</span></td>
+                  <td><label for="select4"></label>
+                    <select name="select4" id="select4">
+                      <option value="Job">Job</option>
+                      <option value="Higher Studies">Higher Studies</option>
+                  </select></td>
+                </tr>
+                
+                <tr>
+                  <td><div align="center">
+                    <input type="submit" name="button" id="button" value="Submit" />
+                  </div></td>
+                  <td><div align="center">
+                    <input type="reset" name="button2" id="button2" value="Reset" />
+                  </div></td>
+                </tr>
+              </table>
+              <p>&nbsp;</p>
+              <p align="center">&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+			</form>
+			<h2>&nbsp;</h2>
+	  </div>
+	</div>
+	<div class="hr1">
+		<hr />
+	</div>
+	<div id="footer">
+		<ul>
+			<li><a href="#" title="">Home</a></li>
+			<li><a href="#" title="">About us</a></li>
+	 <!--   <li><a href="#" title="">Landmark</a></li>-->
+			<li><a href="#" title="">Sign up</a></li>
+          <li><a href="#" title="">Sign in</a></li>
+			<li><a href="#" title="">Contact Us</a></li>
+		</ul>
+		<p>Copyright &copy; 2016 rvce.edu.in. All rights reserved. </p>
+	</div>
+</div>
+</body>
+</html>
+
+			<center><span style="width: 100%; font-family: helvetica; font-size: 6px;">
+			Design downloaded from <a href="http://www.freewebtemplates.com" style="font-family: helvetica; font-size: 6px;">FreeWebTemplates.com</a><br>
+			Free web design, web templates, web layouts, and website resources!
+			</span></center><br><br>
+		
