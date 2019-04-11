@@ -1,1 +1,1 @@
-# College-Projects
+This repository contains all the projects I had done while I was in College. Each project folder contains the source code and also a detailed report which includes DFDs, schemas and other design and implementation details.
